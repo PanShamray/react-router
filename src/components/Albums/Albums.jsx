@@ -7,11 +7,9 @@ import { apiResponse } from "../../utils/apiResponse";
 function Albums() {
   const { userId } = useParams();
   const [albums, setAlbums] = useState([]);
+
   useEffect(() => {
-    apiResponse(
-      `https://jsonplaceholder.typicode.com/albums?userId=${userId}`,
-      setAlbums
-    );
+    apiResponse(`https://jsonplaceholder.typicode.com/albums?userId=${userId}`, setAlbums);
   }, [userId]);
 
   return (

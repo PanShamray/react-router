@@ -8,10 +8,7 @@ function Photos() {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    apiResponse(
-      `https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`,
-      setPhotos
-    );
+    apiResponse(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`, setPhotos);
   }, [albumId]);
 
   return (
