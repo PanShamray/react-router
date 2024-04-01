@@ -11,6 +11,10 @@ body{
   max-width: 33%;
   padding: 8px;
 }
+.photos{
+  background-color:darkcyan;
+  padding: 8px;
+}
 ul{
   padding-left: 0px;
 }

@@ -7,7 +7,7 @@ function Photos() {
     const [photos, setPhotos] = useState([]);
 
     useEffect(() => {
-      fetch(`https://jsonplaceholder.typicode.com/albums?userId=${userId}`)
+      fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`)
         .then((res) => {
           if (!res.ok) {
             throw new Error("Щось з інтернетом");
@@ -20,12 +20,29 @@ function Photos() {
         .catch((error) => {
           console.error("Помилка в отниманні даних: ", error);
         });
-    }, [userId, albumId]);
+    }, [albumId]);
 
 
     return (
-        <h2>ти зараз на Photos</h2>
-    )
+      <div className="wrapper">
+        <div className="photos">
+          <h2>Зображення альбому id_{albumId}</h2>
+
+          <ul>
+            {photos.map((photo) => (
+              <li key={photo.id}>
+                    <img src={photo.thumbnailUrl} alt=""></img>
+                    <br></br> id_{photo.id} title: "{photo.title}"
+                <Link to={`/users/${userId}/albums/${albumId}/photos`}></Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <Routes>
+          <Route path="/users/:userId/albums/:albumId/photos"></Route>
+        </Routes>
+      </div>
+    );
 }
 
 export default Photos;
