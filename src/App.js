@@ -16,12 +16,6 @@ function App() {
             <li>
               <Link to="/users">Users</Link>
             </li>
-            <li>
-              <Link to="/users/:userId/albums">Albums</Link>
-            </li>
-            <li>
-              <Link to="/users/:userId/albums/:albumId/photos">Photos</Link>
-            </li>
           </ul>
         </nav>
       </header>
